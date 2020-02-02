@@ -1,6 +1,8 @@
 # Header spoofing
 
-f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188
+`f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188`
+
+---
 
 ## Description
 
@@ -10,6 +12,7 @@ f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188
 These are two comments from the Albatros' page. To get the flag, you need to send an HTTP request with
 NSA's home page as Referer and ft_bornToSec as User-Agent.
 
+---
 
 ## How to prevent it ?
 

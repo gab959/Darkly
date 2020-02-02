@@ -1,6 +1,8 @@
 # File upload vulnerability
 
-46910d9ce35b385885a9f7e2b336249d622f29b267a1771fbacf52133beddba8
+`46910d9ce35b385885a9f7e2b336249d622f29b267a1771fbacf52133beddba8`
+
+---
 
 ## Description
 
@@ -10,6 +12,8 @@ To do so, you need to change the content type of the file (not the content type 
 You can for example use this curl command :
 
 `curl -F 'uploaded=@image.php;type=image/jpeg' -F 'Upload=Upload' http://10.2.8.36/index.php\?page\=upload`
+
+---
 
 ## How to prevent it ?
 

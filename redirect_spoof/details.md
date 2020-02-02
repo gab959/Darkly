@@ -1,11 +1,15 @@
-# Cross Site Request Forgery
+# Redirection Spoof
 
-b9e775a0291fed784a2d9680fcfad7edd6b8cdf87648da647aaf4bba288bcab3
+`b9e775a0291fed784a2d9680fcfad7edd6b8cdf87648da647aaf4bba288bcab3`
+
+---
 
 ## Description
 
 In the footer's social networks redirections, you need to replace the website in the url
-to redirect=something_else to unlock the flag
+to `site=something else` to unlock the flag
+
+---
 
 ## How to prevent it ?
 

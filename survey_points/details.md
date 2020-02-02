@@ -1,10 +1,14 @@
 # Code Injection
 
-03A944B434D5BAFF05F46C4BEDE5792551A2595574BCAFC9A6E25F67C382CCAA
+`03A944B434D5BAFF05F46C4BEDE5792551A2595574BCAFC9A6E25F67C382CCAA`
+
+---
 
 ## Description
 
 You can change the value of the grade in the HTML, in order to send more points for one person for example.
+
+---
 
 ## How to prevent it ?
 
