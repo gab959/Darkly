@@ -12,5 +12,5 @@ You need to change the email address of the webmaster in the form (in the html) 
 
 ## How to prevent it ?
 
-I'm not sure what's exactly the vulnerability here. If the goal is to send a password recovery link to the user to his email address, the solution is to unhide the email's field so that the user can type in his email address.
+I'm not sure what's exactly the vulnerability here. If the goal is to send a password recovery link to the user's email address, the solution is to unhide the email's field so that the user can type in his email address.
 Again, you have to remember that you have to sanitize ALL the data you receive from the client on the server.

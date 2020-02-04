@@ -6,8 +6,7 @@
 
 ## Description
 
-In the footer's social networks redirections, you need to replace the website in the url
-to `site=something else` to unlock the flag
+In the footer's social networks redirections, you need to replace the website in the url to `site=something else` to unlock the flag
 
 ---
 

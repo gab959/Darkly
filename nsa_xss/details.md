@@ -8,7 +8,7 @@
 
 On page `/?page=media&src=nsa`, the `src` parameter is vulnerable to Cross Site Scripting. The server serves the images and displays them without any verifications. You can send anything in the GET parameter as long as it is base64 encoded (like an image would be). Using this technique, the result of this request :
 
-`http://10.2.8.36/?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgndGVzdCcpPC9zY3JpcHQ+`
+http://10.2.8.36/?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgndGVzdCcpPC9zY3JpcHQ+
 
 unlocks the flag. The base64 encoded string is only a `<script>alert('blabla')</script>`.
 

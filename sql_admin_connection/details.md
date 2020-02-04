@@ -31,8 +31,8 @@ In the case of a php back-end, use PDO :
 - The query will be sanitized with the `prepare` statement
 - It will then be executed with the `execute` statement once the risk of an undesired effect is avoided
 
-Here is a more detailed explanation found on SO regarding the `prepare` command :
+Here is a more detailed explanation found on StackOverflow regarding the `prepare` and `execute` commands :
 
->"The SQL statement you pass to prepare is parsed and compiled by the database server. By specifying parameters (either a ? or a named parameter like :name in the example above) you tell the database engine where you want to filter on. Then when you call execute, the prepared statement is combined with the parameter values you specify.
+>The SQL statement you pass to prepare is parsed and compiled by the database server. By specifying parameters (either a ? or a named parameter like :name in the example above) you tell the database engine where you want to filter on. Then when you call execute, the prepared statement is combined with the parameter values you specify.
 
 >The important thing here is that the parameter values are combined with the compiled statement, not an SQL string. SQL injection works by tricking the script into including malicious strings when it creates SQL to send to the database. So by sending the actual SQL separately from the parameters, you limit the risk of ending up with something you didn't intend."

@@ -7,9 +7,9 @@
 ## Description
 
 In order to find this flag you have to search through all the urls of the `/.hidden` route.
-`hidden.js` will loop through all the directories and append the content of each README, along with the file's url.
-`hidden.txt` now contains all the information we need.
-parse.js will finish the work and filter the irrelevant lines to print only the flag
+`hidden.js` will loop through all the directories and append the content of each README, along with the file's url.\
+`hidden.txt` now contains all the information we need.\
+`parse.js` will finish the work and filter the irrelevant lines to print only the flag
 
 ---
 

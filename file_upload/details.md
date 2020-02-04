@@ -17,4 +17,4 @@ You can for example use this curl command :
 
 ## How to prevent it ?
 
-The biggest concern should be the server-side check. In this case, you just need to parse the file's name and to reject everything that has not a .jpg extension. Relying on the content-type specified in the HTTP is not a good idea because it is can be easily spoofed. You should also change the name of the file before saving it, so that it is harder to access it from the outside.
+The biggest concern should be the server-side check. In this case, you just need to parse the file's name and to reject everything that has not a .jpg extension. Relying on the content-type specified in the HTTP is not a good idea because it can be easily spoofed. You should also change the name of the file before saving it in the db and on the server, so that it is harder to access it from the outside.
